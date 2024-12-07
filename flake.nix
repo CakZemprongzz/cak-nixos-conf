@@ -23,11 +23,11 @@
         specialArgs = {inherit username;};
       in
         nixpkgs.lib.nixosSystem {
-          inherit specialArgs'
+          inherit specialArgs;
           system = "x86_64-linux";
           modules = [
             ./hosts/nixos-test
-            ./users/${username}/nixos.nix
+            #./users/${username}/nixos.nix
 
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;

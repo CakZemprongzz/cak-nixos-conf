@@ -1,9 +1,8 @@
 {username, ...}: {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-  inherit username;
   home = {
-    #inherit username;
+    inherit username;
     homeDirectory = "/home/${username}";
 
     # This value determines the Home Manager release that your
