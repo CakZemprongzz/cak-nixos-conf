@@ -19,8 +19,9 @@
     # Please replace my-nixos with your hostname
     nixosConfigurations = {
       nixos-test = let
+        allowUnfree = true;
         username = "mccak";
-        specialArgs = {inherit username;};
+        specialArgs = {inherit username allowUnfree;};
       in
         nixpkgs.lib.nixosSystem {
           inherit specialArgs;
