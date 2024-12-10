@@ -19,13 +19,13 @@
     # Please replace my-nixos with your hostname
     nixosConfigurations = {
       nixos-test = let
-        allowUnfree = true;
         username = "mccak";
-        specialArgs = {inherit username allowUnfree;};
+        specialArgs = {inherit username;};
       in
         nixpkgs.lib.nixosSystem {
           inherit specialArgs;
           system = "x86_64-linux";
+          config.allowUnfree = true;
           modules = [
             ./hosts/nixos-test
             #./users/${username}/nixos.nix
