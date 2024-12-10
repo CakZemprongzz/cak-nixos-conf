@@ -25,7 +25,6 @@
         nixpkgs.lib.nixosSystem {
           inherit specialArgs;
           system = "x86_64-linux";
-          config.allowUnfree = true;
           modules = [
             ./hosts/nixos-test
             #./users/${username}/nixos.nix
@@ -36,6 +35,8 @@
 
               home-manager.extraSpecialArgs = inputs // specialArgs;
               home-manager.users.${username} = import ./users/${username}/home.nix;
+            } {
+              nixpkgs.config.allowUnfree = true; # Enable unfree packages systemwide
             }
           ];
         };
