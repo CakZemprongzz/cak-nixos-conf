@@ -35,8 +35,6 @@
 
               home-manager.extraSpecialArgs = inputs // specialArgs;
               home-manager.users.${username} = import ./users/${username}/home.nix;
-            } {
-              nixpkgs.config.allowUnfree = true; # Enable unfree packages systemwide
             }
           ];
         };

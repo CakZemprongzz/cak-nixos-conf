@@ -61,6 +61,12 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      allowedUnfreePredicate = (_: true);
+    };
+  };
   networking.firewall.enable = false;
 
   fileSystems = {
