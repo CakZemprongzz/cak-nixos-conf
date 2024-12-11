@@ -89,6 +89,12 @@
     git
     wget
   ];
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      allowedUnfreePredicate = (_: true);
+    };
+  };
   # Set the default editor to vim
   environment.variables.EDITOR = "nano";
 }
