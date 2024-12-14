@@ -12,10 +12,9 @@
     nixosConfigurations = {
       nixos-test = let
         username = "mccak";
-        specialArgs = {inherit username;};
       in
         nixpkgs.lib.nixosSystem {
-          inherit specialArgs;
+          inherit username;
           system = "x86_64-linux";
           modules = [
             ./hosts/nixos-test
@@ -25,7 +24,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
 
-              home-manager.extraSpecialArgs = inputs // specialArgs;
+              home-manager.extraSpecialArgs = inputs;
               home-manager.users.${username} = import ./users/${username}/home.nix;
             }
           ];
