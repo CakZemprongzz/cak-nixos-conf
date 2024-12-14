@@ -1,10 +1,10 @@
-{username, ...}: {
+{...}: {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   #inherit username;
   home = {
-    inherit username;
-    homeDirectory = "/home/${username}";
+    #inherit username;
+    homeDirectory = "/home/mccak";
 
     # This value determines the Home Manager release that your
     # configuration is compatible with. This helps avoid breakage

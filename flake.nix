@@ -14,7 +14,6 @@
         username = "mccak";
       in
         nixpkgs.lib.nixosSystem {
-          inherit username;
           system = "x86_64-linux";
           modules = [
             ./hosts/nixos-test
@@ -25,7 +24,7 @@
               home-manager.useUserPackages = true;
 
               home-manager.extraSpecialArgs = inputs;
-              home-manager.users.${username} = import ./users/${username}/home.nix;
+              home-manager.users.mccak= import ./users/mccak/home.nix;
             }
           ];
         };
