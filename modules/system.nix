@@ -7,6 +7,7 @@
 
   imports = [
     ./firewall.nix
+    ./syspkgs.nix
   ];
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
@@ -48,10 +49,7 @@
         };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  environment.systemPackages = with pkgs; [
-    git
-    wget
-  ];
+
 
   nixpkgs = {
     config = {
