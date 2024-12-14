@@ -22,6 +22,8 @@
   services.displayManager.sddm.enable = true; # SDDM is the default display manager for KDE. 
   services.desktopManager.plasma6.enable = true;
   
+  services.qemuGuest.enable = true;
+  services.spice-vdagentd.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "us";
