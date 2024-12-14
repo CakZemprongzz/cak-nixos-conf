@@ -1,8 +1,10 @@
 {
-	pkgs,
-	lib,
+	config,
 	...
 } : {
 
+   config = {
     networking.firewall.enable = false;
+  };
+
 }
