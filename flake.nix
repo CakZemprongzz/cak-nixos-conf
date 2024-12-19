@@ -35,7 +35,7 @@
       };
 
       # Configuration for 840-g6
-      840-g6 = nixpkgs.lib.nixosSystem {
+      "840-g6" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = commonModules {
           username = "cak";
