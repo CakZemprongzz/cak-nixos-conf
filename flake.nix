@@ -28,6 +28,25 @@
             }
           ];
         };
+
+      840-g6 = let
+        username = "cak";
+      in
+        nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./hosts/840-g6
+            #./users/${username}/nixos.nix
+
+            home-manager.nixosModules.home-manager {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+
+              home-manager.extraSpecialArgs = inputs;
+              home-manager.users.mccak= import ./users/cak/home.nix;
+            }
+          ];
+        };
     };
   };
 }
