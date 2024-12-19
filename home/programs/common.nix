@@ -4,7 +4,7 @@
   ...
 }: {
   home.packages = with pkgs; [
-
+    google-chrome
     libreoffice-qt
     hunspell
     hunspellDicts.en_US
