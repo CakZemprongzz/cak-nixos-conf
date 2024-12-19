@@ -11,7 +11,7 @@
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
     nixosConfigurations = {
       nixos-test = let
-        username = "mccak";
+        username = "cak";
       in
         nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
@@ -24,7 +24,7 @@
               home-manager.useUserPackages = true;
 
               home-manager.extraSpecialArgs = inputs;
-              home-manager.users.mccak= import ./users/mccak/home.nix;
+              home-manager.users.mccak= import ./users/cak/home.nix;
             }
           ];
         };

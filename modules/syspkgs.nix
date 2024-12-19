@@ -9,6 +9,7 @@
         hunspellDicts.en_US
         git
         wget
+        bottles
     ];
 
 }

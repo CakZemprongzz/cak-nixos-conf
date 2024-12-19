@@ -4,7 +4,7 @@
   #inherit username;
   home = {
     #inherit username;
-    homeDirectory = "/home/mccak";
+    homeDirectory = "/home/cak";
 
     # This value determines the Home Manager release that your
     # configuration is compatible with. This helps avoid breakage
