@@ -17,7 +17,9 @@
    };
 
   services.xserver.enable = true;
+
   services.displayManager.sddm.enable = true;
+  security.pam.services.sddm.enableKwallet = true;
   services.desktopManager.plasma6.enable = true;
   
   services.qemuGuest.enable = true;
@@ -29,7 +31,6 @@
      enable = true;
      pulse.enable = true;
    };
-
 
    users.users.cak = {
      isNormalUser = true;
