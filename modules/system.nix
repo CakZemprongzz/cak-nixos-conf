@@ -46,11 +46,9 @@
     "/".options = [ "compress=zstd:1" ];
     "/home".options = [ "compress=zstd:1" ];
     "/nix".options = [ "compress=zstd:1" "noatime" ];
-    "/swap".options = [ "noatime" ];
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
 
   nixpkgs = {
     config = {
