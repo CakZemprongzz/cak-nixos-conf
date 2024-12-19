@@ -12,13 +12,6 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
-
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/e7818e8b-1205-4e95-9b5f-76ad79260c0a";
-      fsType = "btrfs";
-      options = [ "subvol=root" ];
-    };
-
   boot.initrd.luks.devices."cptd".device = "/dev/disk/by-uuid/0771dcb1-be19-40d2-ba42-ee891cba341e";
 
   fileSystems."/" =
