@@ -14,8 +14,8 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   i18n = {
-    defaultLocale = "en_US.UTF-8";
-    supportedLocales = [ "en_US.UTF-8" "id_ID.UTF-8" ];
+    defaultLocale = "id_ID.UTF-8";
+    supportedLocales = [ "en_US.UTF-8/UTF-8" "id_ID.UTF-8/UTF-8" ];
     extraLocaleSettings = {
       LANG = "en_US.UTF-8";
       LC_MESSAGES = "id_ID.UTF-8";
