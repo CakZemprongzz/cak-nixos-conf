@@ -22,4 +22,11 @@
         libarchive
         sof-firmware
     ];
+
+    fonts.packages=with pkgs; [
+        noto-fonts
+        noto-fons-cjk
+        noto-fons-emoji
+    ];
+
 }
