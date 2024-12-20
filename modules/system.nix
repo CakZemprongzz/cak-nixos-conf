@@ -27,8 +27,7 @@
     supportedLocales = [ "all" ];
     extraLocaleSettings = {
       LANG = "en_US.UTF-8";
-      LC_MESSAGES = "id_ID.UTF-8";
-      LC_NUMERIC= "id_ID.UTF-8";
+      LC_NUMERIC = "id_ID.UTF-8";
       LC_TIME = "id_ID.UTF-8";
       LC_MONETARY = "id_ID.UTF-8";
       LC_PAPER = "id_ID.UTF-8";
@@ -97,6 +96,13 @@
       enable = true;
       dockerCompat = true;
       defaultNetwork.settings.dns_enabled = true;
+    };
+  };
+
+  programs.firefox = {
+    enable = true;
+    preferences = {
+      "widget.use-xdg-desktop-portal.file-picker" = 1;
     };
   };
 

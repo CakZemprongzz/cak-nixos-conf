@@ -21,11 +21,12 @@
         wget
         libarchive
         sof-firmware
-        glibcLocales
 
         dive
         podman-tui
         podman-compose
+
+        fastfetch
     ];
 
     fonts.packages=with pkgs; [
