@@ -25,8 +25,8 @@
 
     fonts.packages=with pkgs; [
         noto-fonts
-        noto-fons-cjk
-        noto-fons-emoji
+        noto-fonts-cjk
+        noto-fonts-emoji
     ];
 
 }
