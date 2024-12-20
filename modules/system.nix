@@ -15,9 +15,14 @@
 
   i18n = {
     defaultLocale = "en_us.UTF-8";
-    supportedLocales = [ "en_US.UTF-8/UTF-8" "id_ID.UTF-8/UTF-8" ];
+    supportedLocales = [ "all" ];
     extraLocaleSettings = {
-      LC_ALL = "id_ID.UTF-8";
+      LC_MESSAGES = "id_ID.UTF-8";
+      LC_NUMERIC= "id_ID.UTF-8";
+      LC_TIME = "id_ID.UTF-8";
+      LC_MONETARY = "id_ID.UTF-8";
+      LC_PAPER = "id_ID.UTF-8";
+      LC_MEASUREMENT = "id_ID.UTF-8";
     };
   };
 
