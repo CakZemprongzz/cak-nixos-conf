@@ -9,7 +9,7 @@
     hunspell
     hunspellDicts.en_US
     bottles
-
+    vesktop
   ];
 
   programs = {
