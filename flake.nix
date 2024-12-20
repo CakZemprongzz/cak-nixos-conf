@@ -7,9 +7,14 @@
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }:
+  outputs = { self, nixpkgs, home-manager, plasma-manager, ... }:
   let
     # Define reusable arguments for nixosSystem
     commonModules = { username, hostFile, userHome }: [
@@ -17,7 +22,7 @@
       home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.extraSpecialArgs = { inherit nixpkgs home-manager; };
+        home-manager.extraSpecialArgs = { inherit nixpkgs home-manager plasma-manager; };
         home-manager.users.${username} = import userHome;
       }
     ];
