@@ -22,6 +22,10 @@
         libarchive
         sof-firmware
         glibcLocales
+
+        dive
+        podman-tui
+        podman-compose
     ];
 
     fonts.packages=with pkgs; [

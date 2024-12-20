@@ -24,6 +24,7 @@
 
   i18n = {
     defaultLocale = "en_US.UTF-8";
+    supportedLocales = [ "all" ];
     extraLocaleSettings = {
       LANG = "en_US.UTF-8";
       LC_MESSAGES = "id_ID.UTF-8";
@@ -89,4 +90,19 @@
   };
 
   environment.variables.EDITOR = "nano";
+
+  virtualisation.containers.enable = true;
+  virtualisation = {
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
+  };
+
+  programs.virt-manager.enable = true;
+  users.groups.libvirtd.members = ["cak"];
+  virtualisation.libvirtd.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
+
 }
