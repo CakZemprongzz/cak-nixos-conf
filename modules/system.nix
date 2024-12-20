@@ -10,13 +10,22 @@
     ./syspkgs.nix
   ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    loader = {
+      systemd-boot = {
+        enable = true;
+        configurationLimit = 3;
+      };
+      efi = {
+        canTouchEfiVariables = true;
+      };
+    };
+  };
 
   i18n = {
-    defaultLocale = "en_us.UTF-8";
-    supportedLocales = [ "all" ];
+    defaultLocale = "en_US.UTF-8";
     extraLocaleSettings = {
+      LANG = "en_US.UTF-8";
       LC_MESSAGES = "id_ID.UTF-8";
       LC_NUMERIC= "id_ID.UTF-8";
       LC_TIME = "id_ID.UTF-8";

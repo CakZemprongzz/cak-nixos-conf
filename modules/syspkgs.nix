@@ -21,6 +21,7 @@
         wget
         libarchive
         sof-firmware
+        glibcLocales
     ];
 
     fonts.packages=with pkgs; [
