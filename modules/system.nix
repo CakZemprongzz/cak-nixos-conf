@@ -1,9 +1,4 @@
-{
-	pkgs,
-	lib,
-	config,
-	...
-}: {
+{ pkgs, lib,  config, ... } : {
 
   imports = [
     ./firewall.nix
@@ -20,7 +15,9 @@
         canTouchEfiVariables = true;
       };
     };
+    kernelPackages = with pkgs; linuxPackages_zen;
   };
+
 
   i18n = {
     defaultLocale = "en_US.UTF-8";
@@ -43,6 +40,14 @@
 
   services.xserver.enable = true;
 
+
+  hardware = {
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
+  };
+
   services.displayManager.sddm.enable = true;
   security.pam.services.sddm.enableKwallet = true;
   services.desktopManager.plasma6.enable = true;
@@ -50,7 +55,6 @@
   services.xserver.xkb.layout = "us";
 
   time.timeZone = "Asia/Jakarta";
-
   networking.networkmanager.enable = true;
 
   security.rtkit.enable = true;
@@ -105,6 +109,8 @@
       "widget.use-xdg-desktop-portal.file-picker" = 1;
     };
   };
+
+  programs.kdeconnect.enable = true;
 
   programs.virt-manager.enable = true;
   users.groups.libvirtd.members = ["cak"];

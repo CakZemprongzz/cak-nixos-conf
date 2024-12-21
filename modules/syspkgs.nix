@@ -25,7 +25,8 @@
         dive
         podman-tui
         podman-compose
-
+        distrobox
+        pciutils
         fastfetch
     ];
 
