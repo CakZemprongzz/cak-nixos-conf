@@ -46,6 +46,7 @@
       enable = true;
       enable32Bit = true;
     };
+    enableAllFirmware = true;
   };
 
   services.displayManager.sddm.enable = true;
