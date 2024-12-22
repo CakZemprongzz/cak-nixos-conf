@@ -29,8 +29,7 @@
   in
   {
     nixosConfigurations = {
-      # Configuration for nixos-test
-      nixos-test = nixpkgs.lib.nixosSystem {
+      "nixos-test" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = commonModules {
           username = "cak";
@@ -38,13 +37,19 @@
           userHome = ./users/cak/home.nix;
         };
       };
-
-      # Configuration for 840-g6
       "840-g6" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = commonModules {
           username = "cak";
           hostFile = ./hosts/840-g6;
+          userHome = ./users/cak/home.nix;
+        };
+      };
+      "desktop" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = commonModules {
+          username = "cak";
+          hostFile = ./hosts/desktop;
           userHome = ./users/cak/home.nix;
         };
       };
