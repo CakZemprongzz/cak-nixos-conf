@@ -28,6 +28,8 @@
         distrobox
         pciutils
         fastfetch
+
+        jamesdsp
     ];
 
     fonts.packages=with pkgs; [

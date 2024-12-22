@@ -8,20 +8,24 @@
 
   networking.hostName = "desktop"; # Define your hostname.
 
-  hardware = {
-    graphics = {
-      extraPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
+    corectrl
+    nvtopPackages.amd
+  ];
 
-      ];
-      extraPackages32 = with pkgs; [
-
-      ];
-    };
+  fileSystems."/drive/SSDWin1" = {
+    device = "/dev/disk/by-uuid/3A3E10783E102F7F";
+    fsType = "ntfs-3g";
+    options = [ "rw uid=1000" ];
   };
 
-  environment.systemPackages = with pkgs; [
-
-  ];
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    localNetworkGameTransfers.openFirewall = true;
+    gamescopeSession.enable = true;
+  };
 
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
   # Copy the NixOS configuration file and link it from the resulting system
