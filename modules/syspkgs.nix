@@ -30,6 +30,9 @@
         fastfetch
 
         jamesdsp
+
+        vulkan-tools
+        mangohud
     ];
 
     fonts.packages=with pkgs; [
