@@ -57,7 +57,14 @@
   };
 
 
-  security.rtkit.enable = true;
+  security = {
+    rtkit = {
+      enable = true;
+      };
+    pam = {
+      sshAgentAuth.enable = true;
+    };
+  };
   networking.networkmanager.enable = true;
 
   users.users.cak = {
@@ -100,6 +107,9 @@
     };
     kdeconnect.enable = true;
     virt-manager.enable = true;
+    ssh = {
+      startAgent = true;
+    };
   };
 
   virtualisation = {
