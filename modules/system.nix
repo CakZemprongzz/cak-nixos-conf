@@ -63,6 +63,9 @@
       };
     pam = {
       sshAgentAuth.enable = true;
+      services = {
+        login.kwallet.enable = true;
+      };
     };
   };
   networking.networkmanager.enable = true;
