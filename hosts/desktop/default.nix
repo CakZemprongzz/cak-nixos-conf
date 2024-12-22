@@ -19,12 +19,17 @@
     options = [ "rw uid=1000" ];
   };
 
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-    localNetworkGameTransfers.openFirewall = true;
-    gamescopeSession.enable = true;
+  programs = {
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+      dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+      localNetworkGameTransfers.openFirewall = true;
+      gamescopeSession.enable = true;
+    };
+    gamescope = {
+      enable = true;
+    };
   };
 
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";

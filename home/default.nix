@@ -4,6 +4,7 @@
   #inherit username;
   home = {
     #inherit username;
+    username = "cak";
     homeDirectory = "/home/cak";
 
     # This value determines the Home Manager release that your
