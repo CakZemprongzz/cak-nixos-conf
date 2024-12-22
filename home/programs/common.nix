@@ -7,6 +7,8 @@
     hunspellDicts.en_US
     bottles
     vesktop
+    vlc
+    handbrake
   ];
 
   programs = {
