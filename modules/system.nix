@@ -1,4 +1,5 @@
-{ pkgs, lib, config, ... }: {
+{ pkgs, lib, config, inputs,  ... } : {
+
   imports = [
     ./firewall.nix
     ./syspkgs.nix
@@ -56,7 +57,6 @@
     };
   };
 
-
   security = {
     rtkit = {
       enable = true;
@@ -68,6 +68,7 @@
       };
     };
   };
+
   networking.networkmanager.enable = true;
 
   users.users.cak = {
@@ -86,7 +87,9 @@
   };
 
   nix = {
-    settings.experimental-features = [ "nix-command" "flakes" ];
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+    };
     gc = {
       automatic = true;
       dates = "weekly";

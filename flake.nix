@@ -12,17 +12,20 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+    aagl = {
+      url = "github:ezKEa/aagl-gtk-on-nix/release-24.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, plasma-manager, ... }:
+  outputs = { self, nixpkgs, home-manager, plasma-manager, aagl, ... } @inputs:
   let
-    # Define reusable arguments for nixosSystem
     commonModules = { username, hostFile, userHome }: [
       hostFile
       home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.extraSpecialArgs = { inherit nixpkgs home-manager plasma-manager; };
+        home-manager.extraSpecialArgs = { inherit nixpkgs home-manager plasma-manager aagl; };
         home-manager.users.${username} = import userHome;
       }
     ];
@@ -51,7 +54,9 @@
           username = "cak";
           hostFile = ./hosts/desktop;
           userHome = ./users/cak/home.nix;
-        };
+        } ++ [
+          aagl.nixosModules.default
+        ];
       };
     };
   };
