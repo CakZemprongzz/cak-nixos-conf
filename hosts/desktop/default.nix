@@ -6,6 +6,8 @@
       ../../modules/system.nix
     ];
 
+  boot.kernelParams = [ "amdgpu.ppfeaturemask=0xffffffff"];
+
   networking.hostName = "desktop"; # Define your hostname.
 
   environment.systemPackages = with pkgs; [
