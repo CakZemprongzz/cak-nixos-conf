@@ -34,8 +34,12 @@
         vulkan-tools
         mangohud
 
-        qemu
-        virtiofsd
+        spice
+        spice-gtk
+        spice-protocol
+        spice-vdagent
+        virt-manager
+        virt-viewer
     ];
 
     fonts.packages=with pkgs; [

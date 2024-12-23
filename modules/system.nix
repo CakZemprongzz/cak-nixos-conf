@@ -144,10 +144,17 @@
         swtpm.enable = true;
         ovmf = {
           enable = true;
-          packages = with pkgs; [
-            OVMFFull.fd
+          packages = [
+            (pkgs.OVMF.override {
+              secureBoot = true;
+              tpmSupport = true;
+            }
+            ).fd
           ];
         };
+        vhostUserPackages = with pkgs; [
+          virtiofsd
+        ];
       };
     };
     spiceUSBRedirection.enable = true;
