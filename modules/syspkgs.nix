@@ -33,6 +33,8 @@
 
         vulkan-tools
         mangohud
+
+        qemu
     ];
 
     fonts.packages=with pkgs; [
