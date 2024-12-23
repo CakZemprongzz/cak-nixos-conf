@@ -35,6 +35,7 @@
         mangohud
 
         qemu
+        virtiofsd
     ];
 
     fonts.packages=with pkgs; [
