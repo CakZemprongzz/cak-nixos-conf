@@ -38,6 +38,13 @@
         spice-gtk
         spice-protocol
         spice-vdagent
+        (virt-manager.overrideAttrs (old: {
+            nativeBuildInputs = old.nativeBuildInputs ++ [wrapGAppsHook];
+            buildInputs = lib.lists.subtractLists [wrapGAppsHook] old.buildInputs ++ [
+                gst_all_1.gst-plugins-base
+                gst_all_1.gst-plugins-good
+            ];
+        }))
     ];
 
     fonts.packages=with pkgs; [
