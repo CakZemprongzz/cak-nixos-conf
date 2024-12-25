@@ -1,5 +1,5 @@
 {
-  description = "A simple NixOS flake with Home Manager";
+  description = "McCak NixOS Flake";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
