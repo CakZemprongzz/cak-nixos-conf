@@ -1,4 +1,4 @@
-{ pkgs, lib, config, inputs, ...} : {
+{ pkgs, lib, config, inputs, ... }: {
 
   programs = {
     firefox = {
@@ -9,22 +9,26 @@
     };
     kdeconnect.enable = true;
     virt-manager.enable = true;
+
     ssh = {
       startAgent = true;
+      extraConfig = ''
+        Host github.com
+          IdentityFile ~/Downloads/SSH-Keys/github/id_ed25519
+      '';
     };
+
     steam = {
       enable = true;
-      remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-      dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
       localNetworkGameTransfers.openFirewall = true;
       gamescopeSession.enable = true;
     };
-    gamescope = {
-      enable = true;
-    };
-    gamemode = {
-      enable = true;
-    };
+
+    gamescope.enable = true;
+
+    gamemode.enable = true;
   };
 
 }
