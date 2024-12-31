@@ -9,7 +9,7 @@
     };
     kdeconnect.enable = true;
     virt-manager.enable = true;
-
+    partition-manager.enable = true;
     ssh = {
       startAgent = true;
       extraConfig = ''
