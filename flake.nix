@@ -58,6 +58,14 @@
           aagl.nixosModules.default
         ];
       };
+        "delta" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = commonModules {
+          username = "cak";
+          hostFile = ./hosts/delta;
+          userHome = ./users/cak/home.nix;
+        };
+      };
     };
   };
 }
