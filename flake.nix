@@ -58,7 +58,7 @@
           aagl.nixosModules.default
         ];
       };
-        "delta" = nixpkgs.lib.nixosSystem {
+      "delta" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = commonModules {
           username = "cak";
