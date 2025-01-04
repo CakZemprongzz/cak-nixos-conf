@@ -2,6 +2,9 @@
 
   environment = {
     systemPackages = with pkgs; [
+
+      gcc
+
       # Archives
       zip
       unzip
