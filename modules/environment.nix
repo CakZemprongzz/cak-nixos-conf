@@ -1,7 +1,7 @@
 { pkgs, lib, config, inputs, ... }:
 
 let
-  #nixpkgsUnstable = inputs.nixpkgs-unstable.packages.x86_64-linux;
+  nixpkgsUnstable = inputs.nixpkgs-unstable.legacyPackages."x86_64-linux";
 in
 {
   environment = {
@@ -10,8 +10,8 @@ in
       gcc
       vlc
       handbrake
-      bottles
-      #(nixpkgsUnstable.bottles)
+      #bottles
+      (nixpkgsUnstable.bottles)
       google-chrome
       libreoffice-qt
       hunspell
