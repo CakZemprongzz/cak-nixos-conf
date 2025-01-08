@@ -9,6 +9,7 @@
     vesktop
     vlc
     handbrake
+    zoom-us
   ];
 
   programs = {
