@@ -1,11 +1,17 @@
-{ lib, pkgs, ... } : {
+{ config, lib, pkgs, ... }:
 
+let
+  #nixpkgsUnstable = config._module.args.nixpkgs-unstable;
+in
+{
   home.packages = with pkgs; [
+    #(nixpkgsUnstable.packages.x86_64-linux.bottles)
+
     google-chrome
+    bottles
     libreoffice-qt
     hunspell
     hunspellDicts.en_US
-    bottles
     vesktop
     vlc
     handbrake
@@ -18,7 +24,7 @@
       clock24 = true;
       extraConfig = "mouse on";
     };
-    btop.enable = true; # replacement of htop/nmon
+    btop.enable = true;
     obs-studio = {
       enable = true;
       plugins = with pkgs.obs-studio-plugins; [
@@ -28,9 +34,4 @@
       ];
     };
   };
-
-  services = {
-
-  };
-
 }

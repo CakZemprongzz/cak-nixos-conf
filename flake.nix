@@ -3,6 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -18,14 +20,14 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, plasma-manager, aagl, ... } @inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, plasma-manager, aagl, ... } @inputs:
   let
     commonModules = { username, hostFile, userHome }: [
       hostFile
       home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.extraSpecialArgs = { inherit nixpkgs home-manager plasma-manager aagl; };
+        home-manager.extraSpecialArgs = { inherit nixpkgs nixpkgs-unstable home-manager plasma-manager aagl; };
         home-manager.users.${username} = import userHome;
       }
     ];
