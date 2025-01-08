@@ -27,7 +27,7 @@
       home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.extraSpecialArgs = { inherit nixpkgs nixpkgs-unstable home-manager plasma-manager aagl; };
+        home-manager.extraSpecialArgs = { inherit inputs; };
         home-manager.users.${username} = import userHome;
       }
     ];

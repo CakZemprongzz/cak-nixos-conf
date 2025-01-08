@@ -1,9 +1,21 @@
-{ pkgs, lib, config, inputs, ... } : {
+{ pkgs, lib, config, inputs, ... }:
 
+let
+  #nixpkgsUnstable = inputs.nixpkgs-unstable.packages.x86_64-linux;
+in
+{
   environment = {
     systemPackages = with pkgs; [
 
       gcc
+      vlc
+      handbrake
+      bottles
+      #(nixpkgsUnstable.bottles)
+      google-chrome
+      libreoffice-qt
+      hunspell
+      hunspellDicts.en_US
 
       # Archives
       zip
