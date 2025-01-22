@@ -44,6 +44,9 @@ in
       jamesdsp
       vulkan-tools
       mangohud
+      kdePackages.kio-gdrive
+      kdePackages.kaccounts-providers
+      kdePackages.kaccounts-integration
 
       # Spice tools
       spice
