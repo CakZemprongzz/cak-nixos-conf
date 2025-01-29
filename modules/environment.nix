@@ -47,6 +47,8 @@ in
       kdePackages.kio-gdrive
       kdePackages.kaccounts-providers
       kdePackages.kaccounts-integration
+      kdePackages.filelight
+      gparted
 
       # Spice tools
       spice
