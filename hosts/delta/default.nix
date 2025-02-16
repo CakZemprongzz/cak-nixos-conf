@@ -12,6 +12,12 @@
     nvtopPackages.amd
   ];
 
+  fileSystems."/drive/SSD1" = {
+    device = "/dev/disk/by-uuid/F6964AB9964A79DF";
+    fsType = "ntfs-3g";
+    options = [ "rw uid=1000" ];
+  };
+
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
