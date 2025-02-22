@@ -24,6 +24,20 @@ in
     options = [ "rw uid=1000" ];
   };
 
+  #nixpkgs.hostPlatform = {
+  #  gcc.arch = "znver3";
+  #  gcc.tune = "znver3";
+  #  system = "x86_64-linux";
+  #};
+
+  #nix.settings.system-features = [
+  #  "nixos-test"
+  #  "benchmark"
+  #  "big-parallel"
+  #  "kvm"
+  #  "gccarch-znver3"
+  #];
+
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you

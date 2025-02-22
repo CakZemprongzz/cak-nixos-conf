@@ -48,9 +48,11 @@
     };
   };
 
-  nixpkgs.config = {
-    allowUnfree = true;
-    allowedUnfreePredicate = (_: true);
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      allowedUnfreePredicate = (_: true);
+    };
   };
 
   time.timeZone = "Asia/Jakarta";
