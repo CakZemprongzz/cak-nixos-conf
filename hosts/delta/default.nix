@@ -1,4 +1,9 @@
-{ config, lib, pkgs, inputs, ... } : {
+{ config, lib, pkgs, inputs, ... } :
+
+let
+  nixpkgsUnstable = inputs.nixpkgs-unstable.legacyPackages."x86_64-linux";
+in
+  {
 
   imports =
     [
@@ -10,6 +15,7 @@
 
   environment.systemPackages = with pkgs; [
     nvtopPackages.amd
+    (nixpkgsUnstable.mcontrolcenter)
   ];
 
   fileSystems."/drive/SSD1" = {
