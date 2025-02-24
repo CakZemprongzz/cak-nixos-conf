@@ -55,6 +55,12 @@
     };
   };
 
+  nixpkgs.config.packageOverrides = pkgs: rec {
+    wpa_supplicant = pkgs.wpa_supplicant.overrideAttrs (attrs: {
+      patches = attrs.patches ++ [ ./eduroam.patch ];
+    });
+  };
+
   time.timeZone = "Asia/Jakarta";
 
   hardware = {
