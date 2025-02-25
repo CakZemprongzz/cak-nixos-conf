@@ -47,7 +47,7 @@ in
       kdePackages.filelight
       gparted
       (nixpkgsUnstable.tutanota-desktop)
-      qbittorrent
+
 
       # Spice tools
       spice

@@ -3,6 +3,9 @@
   home.packages = with pkgs; [
     vesktop
     zoom-us
+    qbittorrent
+    filezilla
+    whatsie
   ];
 
   programs = {
