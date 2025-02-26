@@ -60,6 +60,8 @@
       patches = attrs.patches ++ [ ./eduroam.patch ];
     });
   };
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
 
   time.timeZone = "Asia/Jakarta";
 

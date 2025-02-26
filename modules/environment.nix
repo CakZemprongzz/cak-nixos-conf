@@ -10,12 +10,14 @@ in
       gcc
       vlc
       handbrake
+      mpv
       #bottles
       (nixpkgsUnstable.bottles)
       google-chrome
       libreoffice-qt
       hunspell
       hunspellDicts.en_US
+      zoom-us
 
       # Archives
       zip
@@ -45,6 +47,7 @@ in
       vulkan-tools
       mangohud
       kdePackages.filelight
+      kdePackages.xdg-desktop-portal-kde
       gparted
       (nixpkgsUnstable.tutanota-desktop)
 
