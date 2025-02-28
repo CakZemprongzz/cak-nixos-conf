@@ -23,6 +23,9 @@
       interval = "monthly";
       fileSystems = [ "/" ];
     };
+    flatpak = {
+      enable = true;
+    };
   };
 
 }
