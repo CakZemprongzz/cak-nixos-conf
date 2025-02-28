@@ -1,6 +1,6 @@
 { pkgs, lib, config, inputs, ...} : {
 
-  fonts.packages=with pkgs; [
+  fonts.packages = with pkgs; [
       noto-fonts
       noto-fonts-lgc-plus
       noto-fonts-cjk-sans
