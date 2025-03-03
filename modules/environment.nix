@@ -47,6 +47,7 @@ in
       kdePackages.discover
       gparted
       (nixpkgsUnstable.tutanota-desktop)
+      anydesk
 
 
       # Spice tools
