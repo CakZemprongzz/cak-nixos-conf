@@ -11,7 +11,6 @@ in
       vlc
       handbrake
       mpv
-      google-chrome
       libreoffice-qt
       hunspell
       hunspellDicts.en_US
