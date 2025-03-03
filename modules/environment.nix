@@ -48,6 +48,7 @@ in
       gparted
       (nixpkgsUnstable.tutanota-desktop)
       anydesk
+      remmina
 
 
       # Spice tools
