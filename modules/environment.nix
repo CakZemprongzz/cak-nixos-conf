@@ -11,9 +11,6 @@ in
       vlc
       handbrake
       mpv
-      libreoffice-qt
-      hunspell
-      hunspellDicts.en_US
 
       # Archives
       zip
@@ -44,11 +41,8 @@ in
       mangohud
       kdePackages.filelight
       kdePackages.xdg-desktop-portal-kde
-      kdePackages.discover
       gparted
       (nixpkgsUnstable.tutanota-desktop)
-      anydesk
-      remmina
 
 
       # Spice tools
