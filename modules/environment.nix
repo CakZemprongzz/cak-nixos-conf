@@ -22,6 +22,7 @@ in
       # Filesystem
       ntfs3g
       exfat
+      nfs-utils
 
       # Miscellaneous utilities
       libnotify
