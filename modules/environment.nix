@@ -23,6 +23,9 @@ in
       ntfs3g
       exfat
       nfs-utils
+      exfatprogs
+      btrfs-progs
+      f2fs-tools
 
       # Miscellaneous utilities
       libnotify
@@ -43,7 +46,6 @@ in
       kdePackages.filelight
       kdePackages.xdg-desktop-portal-kde
       gparted
-      (nixpkgsUnstable.tutanota-desktop)
 
 
       # Spice tools
