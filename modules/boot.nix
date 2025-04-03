@@ -1,5 +1,9 @@
-{ pkgs, lib, config, inputs, ...} : {
+{ pkgs, lib, config, inputs, ...} :
 
+let
+  nixpkgsUnstable = inputs.nixpkgs-unstable.legacyPackages."x86_64-linux";
+in
+{
   boot.loader = {
     systemd-boot = {
       enable = true;
@@ -7,6 +11,6 @@
     };
     efi.canTouchEfiVariables = true;
   };
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = nixpkgsUnstable.linuxPackages_zen;
 
 }
