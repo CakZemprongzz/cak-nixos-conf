@@ -35,7 +35,9 @@ in
       libarchive
       sof-firmware
       dive
+      podman
       podman-tui
+      podman-desktop
       podman-compose
       distrobox
       pciutils
@@ -45,8 +47,7 @@ in
       mangohud
       kdePackages.filelight
       kdePackages.xdg-desktop-portal-kde
-      gparted
-
+      tio
 
       # Spice tools
       spice
