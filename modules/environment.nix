@@ -48,6 +48,7 @@ in
       kdePackages.filelight
       kdePackages.xdg-desktop-portal-kde
       tio
+      protonup-qt
 
       # Spice tools
       spice
