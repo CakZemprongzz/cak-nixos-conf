@@ -34,10 +34,7 @@ in
       wget
       libarchive
       sof-firmware
-      dive
       podman
-      podman-tui
-      podman-desktop
       podman-compose
       distrobox
       pciutils
@@ -49,6 +46,8 @@ in
       kdePackages.xdg-desktop-portal-kde
       tio
       protonup-qt
+      flameshot
+
 
       # Spice tools
       spice
