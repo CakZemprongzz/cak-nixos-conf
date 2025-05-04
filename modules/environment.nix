@@ -66,6 +66,11 @@ in
     ];
     etc.hosts.mode = "0644";
     variables.EDITOR = "nano";
+    plasma6.excludePackages = with pkgs.kdePackages; [
+      spectacle
+      oxygen
+    ];
+
   };
 
 }
