@@ -46,8 +46,6 @@ in
       kdePackages.xdg-desktop-portal-kde
       tio
       protonup-qt
-      flameshot
-
 
       # Spice tools
       spice
@@ -67,7 +65,6 @@ in
     etc.hosts.mode = "0644";
     variables.EDITOR = "nano";
     plasma6.excludePackages = with pkgs.kdePackages; [
-      spectacle
       oxygen
     ];
 
