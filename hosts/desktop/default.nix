@@ -21,6 +21,13 @@
     options = [ "rw uid=1000" ];
   };
 
+  fileSystems."/drive/NVMEWin1" = {
+    device = "/dev/disk/by-uuid/D058CDED58CDD280";
+    fsType = "ntfs-3g";
+    options = [ "rw uid=1000" ];
+  };
+
+
   programs = {
     honkers-railway-launcher = {
       enable = true;
