@@ -46,6 +46,7 @@ in
       kdePackages.xdg-desktop-portal-kde
       tio
       protonup-qt
+      (nixpkgsUnstable.bottles)
 
       # Spice tools
       spice
