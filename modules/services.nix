@@ -7,7 +7,6 @@
     };
     displayManager.sddm.enable = true;
     desktopManager.plasma6.enable = true;
-
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -15,16 +14,11 @@
       pulse.enable = true;
       jack.enable = true;
     };
-
     openssh.enable = true;
-
     btrfs.autoScrub = {
       enable = true;
       interval = "monthly";
       fileSystems = [ "/" ];
-    };
-    flatpak = {
-      enable = true;
     };
     scx = {
       enable = true;

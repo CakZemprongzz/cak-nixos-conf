@@ -8,5 +8,4 @@
     name = "cak";
     home = "/home/cak";
   };
-
 }
