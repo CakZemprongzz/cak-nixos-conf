@@ -42,12 +42,21 @@ in
       jamesdsp
       vulkan-tools
       mangohud
-      kdePackages.filelight
-      kdePackages.xdg-desktop-portal-kde
       tio
       protonup-qt
       (nixpkgsUnstable.bottles)
-
+      gnome-tweaks
+      dconf-editor
+      
+      #Gnome Extension
+      
+      gnomeExtensions.blur-my-shell
+      gnomeExtensions.user-themes
+      gnomeExtensions.dash-to-dock
+      gnomeExtensions.tophat
+      gnomeExtensions.appindicator
+      gnomeExtensions.tiling-assistant
+      
       # Spice tools
       spice
       spice-gtk
@@ -65,9 +74,6 @@ in
     ];
     etc.hosts.mode = "0644";
     variables.EDITOR = "nano";
-    plasma6.excludePackages = with pkgs.kdePackages; [
-      oxygen
-    ];
 
   };
 

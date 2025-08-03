@@ -9,15 +9,6 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    plasma-manager = {
-      url = "github:nix-community/plasma-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
-    aagl = {
-      url = "github:ezKEa/aagl-gtk-on-nix/release-25.05";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.0.tar.gz";
@@ -25,7 +16,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, plasma-manager, aagl,lix-module, ... } @ inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager,lix-module, ... } @ inputs:
   let
     makeConfig = { name, username, hostFile, extraModules ? [] }: nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -58,7 +49,6 @@
         name = "desktop"; 
         username = "cak"; 
         hostFile = ./hosts/desktop; 
-        extraModules = [ aagl.nixosModules.default ]; 
       };
       "delta" = makeConfig { 
         name = "delta"; 

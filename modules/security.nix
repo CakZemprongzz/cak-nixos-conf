@@ -7,7 +7,6 @@
     pam = {
       sshAgentAuth.enable = true;
       services = {
-        login.kwallet.enable = true;
       };
     };
   };
