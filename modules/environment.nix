@@ -71,7 +71,14 @@ in
           gst_all_1.gst-plugins-good
         ];
       }))
+      (pkgs.gamescope.overrideAttrs (old: {
+      patches = (old.patches or []) ++ [
+        ./gamescope-fix.patch
+       ];
+      }))
     ];
+    
+
     etc.hosts.mode = "0644";
     variables.EDITOR = "nano";
 

@@ -11,6 +11,7 @@
     ./users.nix
     ./virtualisation.nix
   ];
+  
   i18n = {
     defaultLocale = "en_US.UTF-8";
     supportedLocales = [ "all" ];
@@ -23,15 +24,18 @@
       LC_MEASUREMENT = "id_ID.UTF-8";
     };
   };
+  
   console = {
     font = "Lat2-Terminus16";
     useXkbConfig = true;
   };
+  
   fileSystems = {
     "/" = { options = [ "compress=zstd:1" ]; };
     "/home" = { options = [ "compress=zstd:1" ]; };
     "/nix" = { options = [ "compress=zstd:1" "noatime" ]; };
   };
+  
   nix = {
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
@@ -42,17 +46,20 @@
       options = "--delete-older-than 14d";
     };
   };
+  
   nixpkgs = {
     config = {
       allowUnfree = true;
       allowedUnfreePredicate = (_: true);
     };
   };
+  
   nixpkgs.config.packageOverrides = pkgs: rec {
     wpa_supplicant = pkgs.wpa_supplicant.overrideAttrs (attrs: {
       patches = attrs.patches ++ [ ./eduroam.patch ];
     });
   };
+  
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
   time.timeZone = "Asia/Jakarta";
@@ -63,6 +70,7 @@
     };
     enableAllFirmware = true;
   };
+  
   qt = {
     enable = true;
     platformTheme = "gnome";
