@@ -45,17 +45,7 @@ in
       tio
       protonup-qt
       (nixpkgsUnstable.bottles)
-      gnome-tweaks
       dconf-editor
-      
-      #Gnome Extension
-      
-      gnomeExtensions.blur-my-shell
-      gnomeExtensions.user-themes
-      gnomeExtensions.dash-to-dock
-      gnomeExtensions.tophat
-      gnomeExtensions.appindicator
-      gnomeExtensions.tiling-assistant
       
       # Spice tools
       spice
@@ -70,11 +60,6 @@ in
           gst_all_1.gst-plugins-base
           gst_all_1.gst-plugins-good
         ];
-      }))
-      (pkgs.gamescope.overrideAttrs (old: {
-      patches = (old.patches or []) ++ [
-        ./gamescope-fix.patch
-       ];
       }))
     ];
     
