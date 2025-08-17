@@ -1,5 +1,9 @@
-{ config, lib, pkgs, inputs, ... } : {
+{ config, lib, pkgs, inputs, ... } :
 
+let
+  nixpkgsUnstable = inputs.nixpkgs-unstable.legacyPackages."x86_64-linux";
+in
+{
   imports =
     [
       ./hardware-configuration.nix
@@ -9,9 +13,13 @@
   networking.hostName = "desktop"; # Define your hostname.
 
   environment.systemPackages = with pkgs; [
-    lact
+    (nixpkgsUnstable.lact)
     nvtopPackages.amd
   ];
+
+  systemd.packages = with pkgs; [ (nixpkgsUnstable.lact) ];
+  systemd.services.lactd.wantedBy = ["multi-user.target"];
+
   hardware.amdgpu.overdrive.enable = true;
 
   fileSystems."/drive/SSDWin1" = {
