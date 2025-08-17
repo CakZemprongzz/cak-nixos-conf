@@ -6,14 +6,13 @@
       ../../modules/system.nix
     ];
 
-  boot.kernelParams = [ "amdgpu.ppfeaturemask=0xffffffff"];
-
   networking.hostName = "desktop"; # Define your hostname.
 
   environment.systemPackages = with pkgs; [
-    corectrl
+    lact
     nvtopPackages.amd
   ];
+  hardware.amdgpu.overdrive.enable = true;
 
   fileSystems."/drive/SSDWin1" = {
     device = "/dev/disk/by-uuid/3A3E10783E102F7F";
