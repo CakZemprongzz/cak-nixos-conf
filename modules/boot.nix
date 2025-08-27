@@ -11,6 +11,6 @@ in
     };
     efi.canTouchEfiVariables = true;
   };
-  boot.kernelPackages = nixpkgsUnstable.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 
 }
