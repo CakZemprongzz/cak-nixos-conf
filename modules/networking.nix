@@ -9,7 +9,7 @@
     networkmanager = {
       enable = true;
     };
-    #wg-quick.interfaces.wg0.configFile = "/home/cak/wireguard-key/wg0.conf";
-  };
+        #wg-quick.interfaces.wg0.configFile = "/home/cak/wireguard-key/wg0.conf";
+ };
 
 }

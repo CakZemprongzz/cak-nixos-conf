@@ -46,6 +46,7 @@ in
       protonup-qt
       (nixpkgsUnstable.bottles)
       dconf-editor
+      remmina
       
       # Spice tools
       spice
