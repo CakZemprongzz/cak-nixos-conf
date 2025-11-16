@@ -47,6 +47,7 @@ in
       (nixpkgsUnstable.bottles)
       dconf-editor
       remmina
+      inetutils
       
       # Spice tools
       spice
