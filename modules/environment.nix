@@ -66,7 +66,6 @@ in
 #        ];
 #      }))
     ];
-    
 
     etc.hosts.mode = "0644";
     variables.EDITOR = "nano";
