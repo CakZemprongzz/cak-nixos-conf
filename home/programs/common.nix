@@ -4,7 +4,6 @@
     vesktop
     qbittorrent
     filezilla
-    jellyfin-media-player
   ];
 
   programs = {
