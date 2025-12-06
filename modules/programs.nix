@@ -24,6 +24,7 @@
       localNetworkGameTransfers.openFirewall = true;
       gamescopeSession.enable = true;
     };
+
     gamescope.enable = true;
     gamemode.enable = true;
     obs-studio = {

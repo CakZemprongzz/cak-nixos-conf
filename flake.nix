@@ -5,6 +5,11 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+    aagl = {
+      url = "github:ezKEa/aagl-gtk-on-nix/release-25.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -22,13 +27,14 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager,lix-module, ... } @ inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, aagl, home-manager, lix, lix-module, ... } @ inputs:
   let
     makeConfig = { name, username, hostFile, extraModules ? [] }: nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
       modules = [
         lix-module.nixosModules.default
+        aagl.nixosModules.default
         hostFile
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
@@ -40,6 +46,7 @@
     };
   in
   {
+    nix.settings = aagl.nixConfig;
     nixosConfigurations = {
       "nixos-test" = makeConfig { 
         name = "nixos-test"; 

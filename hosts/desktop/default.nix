@@ -8,6 +8,7 @@ in
     [
       ./hardware-configuration.nix
       ../../modules/system.nix
+      #inputs.aagl.nixosModules.default
     ];
 
   networking.hostName = "desktop"; # Define your hostname.
@@ -33,6 +34,9 @@ in
     fsType = "ntfs-3g";
     options = [ "rw uid=1000" ];
   };
+
+  programs.sleepy-launcher.enable = true;
+
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
