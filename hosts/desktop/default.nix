@@ -12,6 +12,19 @@ in
     ];
 
   networking.hostName = "desktop"; # Define your hostname.
+  networking.useDHCP = false;
+  networking.bridges = {
+    "br0" = {
+      interfaces = [ "enp42s0" ];
+    };
+  };
+  networking.interfaces.br0.ipv4.addresses = [ {
+    address = "192.168.100.67";
+    prefixLength = 24;
+  } ];
+  networking.interfaces.enp42s0.useDHCP = false;
+  networking.defaultGateway = "192.168.100.1";
+  networking.nameservers = ["1.1.1.1" "8.8.8.8" "192.168.100.1"];
 
   environment.systemPackages = with pkgs; [
     (nixpkgsUnstable.lact)
@@ -22,6 +35,12 @@ in
   systemd.services.lactd.wantedBy = ["multi-user.target"];
 
   hardware.amdgpu.overdrive.enable = true;
+
+  fileSystems."/drive/HDDWin1" = {
+    device = "/dev/disk/by-uuid/2B0B486A2FDC92F6";
+    fsType = "ntfs-3g";
+    options = [ "rw uid=1000" ];
+  };
 
   fileSystems."/drive/SSDWin1" = {
     device = "/dev/disk/by-uuid/3A3E10783E102F7F";
