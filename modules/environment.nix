@@ -44,6 +44,7 @@ in
       mangohud
       tio
       protonup-qt
+      protontricks
       bottles
       dconf-editor
       remmina
