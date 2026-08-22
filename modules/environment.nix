@@ -63,6 +63,7 @@ in
       kdePackages.filelight
       kdiskmark
       mono
+      umu-launcher
 
       # Virtualization tools
 #      (virt-manager.overrideAttrs (old: {
