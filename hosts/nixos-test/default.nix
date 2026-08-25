@@ -48,6 +48,13 @@ in
   services.qemuGuest.enable = true;
   services.spice-vdagentd.enable = true;
 
+  # compressed zram swap on top of the 8G swap partition (small VM)
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+    memoryPercent = 50;
+  };
+
   # Virtio-GPU: the guest needs nothing extra (mesa drives virtio-gpu
   # out of the box); in virt-manager set Video model = "virtio"
   # (and 3D acceleration if wanted -> requires /dev/dri/renderD128).
