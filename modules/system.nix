@@ -32,9 +32,9 @@
   };
   
   fileSystems = {
-    "/" = { options = [ "compress=zstd:1" ]; };
-    "/home" = { options = [ "compress=zstd:1" ]; };
-    "/nix" = { options = [ "compress=zstd:1" "noatime" ]; };
+    "/" = { options = [ "compress=zstd:3" ]; };
+    "/home" = { options = [ "compress=zstd:3" ]; };
+    "/nix" = { options = [ "compress=zstd:3" "noatime" ]; };
   };
   
   nix = {
