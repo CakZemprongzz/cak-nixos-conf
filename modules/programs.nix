@@ -21,4 +21,8 @@
     # behind the cak.gaming.enable toggle
   };
 
+  # 26.05: gcr-ssh-agent is enabled by default and conflicts with
+  # programs.ssh.startAgent above (only one SSH agent allowed)
+  services.gnome.gcr-ssh-agent.enable = false;
+
 }
