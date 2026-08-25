@@ -17,26 +17,8 @@
           IdentityFile ~/Downloads/SSH-Keys/github/id_ed25519
       '';
     };
-    steam = {
-      enable = true;
-      remotePlay.openFirewall = true;
-      dedicatedServer.openFirewall = true;
-      localNetworkGameTransfers.openFirewall = true;
-      gamescopeSession.enable = true;
-    };
-
-    gamescope.enable = true;
-    gamemode.enable = true;
-    obs-studio = {
-      enable = true;
-      plugins = with pkgs.obs-studio-plugins; [
-        wlrobs
-        obs-pipewire-audio-capture
-        obs-vaapi #optional AMD hardware acceleration
-        obs-gstreamer
-        obs-vkcapture
-      ];
-    };
+    # gaming stack (steam/gamescope/gamemode/OBS) lives in modules/gaming.nix
+    # behind the cak.gaming.enable toggle
   };
 
 }

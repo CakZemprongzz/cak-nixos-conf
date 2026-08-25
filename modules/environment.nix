@@ -39,13 +39,7 @@ in
       distrobox
       pciutils
       fastfetch
-      jamesdsp
-      vulkan-tools
-      mangohud
       tio
-      protonup-qt
-      protontricks
-      bottles
       dconf-editor
       remmina
       inetutils

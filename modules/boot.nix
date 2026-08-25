@@ -1,8 +1,4 @@
 { pkgs, lib, config, inputs, ...} :
-let
-  nixpkgsUnstable = inputs.nixpkgs-unstable.legacyPackages."x86_64-linux";
-  cachyosKernel = inputs.nix-cachyos-kernel.legacyPackages."x86_64-linux";
-in
 {
   boot.loader = {
     systemd-boot = {
@@ -11,8 +7,7 @@ in
     };
     efi.canTouchEfiVariables = true;
   };
-  boot.kernelPackages = cachyosKernel.linuxPackages-cachyos-latest-x86_64-v3;
-  #boot.kernelPackages = pkgs.linuxPackages_zen;
-
-
+  # kernel selection: the gaming-tuned CachyOS kernel comes from
+  # modules/gaming.nix (cak.gaming.enable); non-gaming hosts use the
+  # default nixpkgs kernel or set their own here.
 }

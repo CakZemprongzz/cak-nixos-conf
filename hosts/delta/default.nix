@@ -13,6 +13,8 @@ in
 
   networking.hostName = "delta"; # Define your hostname.
 
+  cak.gaming.enable = true;
+
   environment.systemPackages = with pkgs; [
     nvtopPackages.amd
     (nixpkgsUnstable.mcontrolcenter)

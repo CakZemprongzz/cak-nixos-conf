@@ -1,47 +1,58 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
 { config, lib, pkgs, inputs, ... }:
+
+let
+  # Launch XFCE inside its own D-Bus session. Without this, an RDP login
+  # collides with a console login of the same user (xfce4-session is
+  # single-instance per bus) and the session dies instantly -> blank screen.
+  xrdpXfceSession = pkgs.writeShellScript "xrdp-xfce-session" ''
+    export XDG_SESSION_TYPE=x11
+    export XDG_CURRENT_DESKTOP=XFCE
+    exec ${pkgs.dbus}/bin/dbus-run-session -- ${pkgs.xfce.xfce4-session}/bin/xfce4-session
+  '';
+in
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
       ../../modules/system.nix
     ];
 
-  networking.hostName = "nixos-test"; # Define your hostname.
+  networking.hostName = "nixos-test";
+
+  # ------------------------------------------------------------------
+  # Lightweight test VM: no gaming stack (cak.gaming.enable = false),
+  # zen kernel, XFCE desktop instead of Plasma 6.
+  # ------------------------------------------------------------------
+
+  cak.gaming.enable = false;
+
+  boot.kernelPackages = pkgs.linuxPackages_zen;
+
+  services.displayManager.sddm.wayland.enable = lib.mkForce false;
+  services.desktopManager.plasma6.enable = lib.mkForce false;
+  services.xserver.desktopManager.xfce.enable = true;
+
+  # ------------------------------------------------------------------
+  # Remote desktop (RDP)
+  # ------------------------------------------------------------------
+
+  services.xrdp = {
+    enable = true;
+    openFirewall = true; # opens TCP 3389
+    defaultWindowManager = "${xrdpXfceSession}";
+  };
+  # xrdp auto-generates a self-signed TLS cert on first start.
+  # NOTE: use RDP or the console/Spice display, not both logged in at once.
 
   services.qemuGuest.enable = true;
   services.spice-vdagentd.enable = true;
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
+  # Virtio-GPU: the guest needs nothing extra (mesa drives virtio-gpu
+  # out of the box); in virt-manager set Video model = "virtio"
+  # (and 3D acceleration if wanted -> requires /dev/dri/renderD128).
 
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-  # Copy the NixOS configuration file and link it from the resulting system
-  # (/run/current-system/configuration.nix). This is useful in case you
-  # accidentally delete configuration.nix.
   system.copySystemConfiguration = false;
 
-  # This option defines the first version of NixOS you have installed on this particular machine,
-  # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
-  #
-  # Most users should NEVER change this value after the initial install, for any reason,
-  # even if you've upgraded your system to a new NixOS release.
-  #
-  # This value does NOT affect the Nixpkgs version your packages and OS are pulled from,
-  # so changing it will NOT upgrade your system - see https://nixos.org/manual/nixos/stable/#sec-upgrading for how
-  # to actually do that.
-  #
-  # This value being lower than the current NixOS release does NOT mean your system is
-  # out of date, out of support, or vulnerable.
-  #
-  # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
-  # and migrated your data accordingly.
-  #
-  # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "24.11"; # Did you read the comment?
-
+  system.stateVersion = "24.11";
 }

@@ -23,10 +23,6 @@
       interval = "monthly";
       fileSystems = [ "/" ];
     };
-    scx = {
-      enable = true;
-      scheduler = "scx_bpfland";
-    };
     udev.extraRules = builtins.readFile ./rules;
   };
 

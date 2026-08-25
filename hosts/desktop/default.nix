@@ -12,6 +12,8 @@ in
     ];
 
   networking.hostName = "desktop"; # Define your hostname.
+
+  cak.gaming.enable = true;
   networking.useDHCP = false;
   networking.bridges = {
     "br0" = {

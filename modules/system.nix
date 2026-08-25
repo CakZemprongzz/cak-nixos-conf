@@ -4,6 +4,7 @@
     ./boot.nix
     ./environment.nix
     ./fonts.nix
+    ./gaming.nix
     ./networking.nix
     ./programs.nix
     ./security.nix
